@@ -177,8 +177,8 @@ docker run --rm -v $(pwd)/output:/app/output ecommerce-crawler \
 ## Engineering Decisions
 
 - **Request-based crawling (Tokopedia)**: Uses Tokopedia's GraphQL frontend API directly instead of HTML scraping. Faster, more reliable, and less fragile than DOM parsing.
-- **SSR scraping (Shopee)**: Shopee's search API is protected by anti-bot tokens requiring browser-side JavaScript execution. Instead of adding heavy browser automation (Puppeteer/Playwright), the crawler uses Googlebot user-agent to access Shopee's server-side rendered JSON-LD structured data — a lightweight approach that requires no extra dependencies.
-- **Two-step enrichment**: Both platforms use a two-step approach — listing retrieval followed by per-product detail/rating enrichment with controlled concurrency.
+- **SSR scraping (Shopee)**: Shopee's search API is protected by anti-bot tokens requiring browser-side JavaScript execution. Instead of adding heavy browser automation (Puppeteer/Playwright), the crawler uses Googlebot user-agent to access Shopee's server-side rendered JSON-LD structured data - a lightweight approach that requires no extra dependencies.
+- **Two-step enrichment**: Both platforms use a two-step approach - listing retrieval followed by per-product detail/rating enrichment with controlled concurrency.
 - **Native fetch**: Uses Node.js built-in `fetch` (available since v18) to avoid unnecessary HTTP library dependencies.
 - **ES modules**: Uses `"type": "module"` for clean `import/export` syntax.
 - **Minimal dependencies**: Only `commander` for CLI parsing. Everything else uses Node.js built-ins.
