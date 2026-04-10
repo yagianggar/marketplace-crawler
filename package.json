@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce-crawler",
+  "version": "1.0.0",
+  "description": "CLI-based ecommerce crawler for Tokopedia and Shopee",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "crawler",
+    "ecommerce",
+    "tokopedia",
+    "shopee"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^14.0.3"
+  }
+}
