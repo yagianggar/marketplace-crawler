@@ -72,7 +72,8 @@ async function enrichWithReviewCounts(products, options = {}) {
         products[i + idx].review_count = result.value;
         enrichedCount++;
       } else {
-        warn(`Shopee review enrichment failed for ${batch[idx]?.url || 'unknown'}`);
+        const reason = result.status === 'rejected' ? result.reason?.message : 'no review data in JSON-LD';
+        warn(`Shopee review enrichment failed for ${batch[idx]?.url || 'unknown'} — ${reason}`);
         failedCount++;
       }
     });
